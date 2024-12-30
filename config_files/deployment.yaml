@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: igorcosta-playlist-recommender-deployment
+  labels:
+    app: igorcosta-playlist-recommender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: igorcosta-playlist-recommender
+  template:
+    metadata:
+      labels:
+        app: igorcosta-playlist-recommender
+    spec:
+      containers:
+        - name: recommender
+          image: igorjsc/recommender:latest
+          ports:
+            - containerPort: 52031
+          volumeMounts:
+            - name: project2-storage
+              mountPath: /mnt/data  # This is the directory inside the container where the PVC will be mounted
+      volumes:
+        - name: project2-storage
+          persistentVolumeClaim:
+            claimName: project2-pvc-igorcosta  # The name of the PVC
+

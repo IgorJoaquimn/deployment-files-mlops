@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: igorcosta
+  name: project2-pv2-igorcosta
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 1Gi
+  storageClassName: default-storage-class
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  hostPath:
+    path: /home/igorcosta/project2-pv2

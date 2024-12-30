@@ -1,0 +1,4 @@
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                           NAMES
+0970bf281a8c   api_rest_igor   "flask run"              54 minutes ago   Up 54 minutes   0.0.0.0:52031->52031/tcp, :::52031->52031/tcp   lucid_jones
+6bb300bb3e9f   dfc307ffd4bf    "flask run --host=0.…"   17 hours ago     Up 17 hours     52035/tcp                                       hungry_satoshi
+f6bc6d6b63c4   flask-api       "flask run --host 0.…"   46 hours ago     Up 46 hours     0.0.0.0:52049->52049/tcp, :::52049->52049/tcp   flask-api

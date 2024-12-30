@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: igorcosta-playlist-recommender-service
+spec:
+  selector:
+    app: igorcosta-playlist-recommender
+  ports:
+    - protocol: TCP
+      port: 52031          # Service port
+      targetPort: 52031    # Pod port
+
