@@ -6,7 +6,7 @@ on:
       - config_files/db_pointer.yaml  # Trigger only when this file changes
       
 permissions:                    # Global permissions configuration starts here
-  contents: read                # 'read' access to repository contents
+  contents: write                # 'read' access to repository contents
   pull-requests: write          # 'write' access to pull requests
   pages: write
   
