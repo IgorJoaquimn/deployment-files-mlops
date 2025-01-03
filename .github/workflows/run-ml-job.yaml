@@ -8,6 +8,7 @@ on:
 permissions:                    # Global permissions configuration starts here
   contents: read                # 'read' access to repository contents
   pull-requests: write          # 'write' access to pull requests
+  pages: write
   
 jobs:
   run-ml-job:
@@ -46,7 +47,7 @@ jobs:
 
       - name: Commit files
         run: |
-          git config --global user.name 'Igor Bot'
+          git config --global user.name 'IgorJoaquimn'
           git config --global user.email 'IgorJoaquimn@users.noreply.github.com'
           git commit -m "Auto updating ml-job.yaml"
           git remote set-url --push origin https://IgorJoaquimn:$GITHUB_TOKEN@github.com/IgorJoaquimn/deployment-files-mlops
