@@ -10,14 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Test Write Permissions
+        run: |
+          touch test-file.txt
+          if [ -f "test-file.txt" ]; then
+          echo "Write permissions are enabled."
+          else
+          echo "Write permissions are not enabled."
+          fi
+          ls -la
 
-    - name: Set Up Shell Script
-      run: chmod +x ml-job-run.sh  # Ensure the script is executable
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Run ML Job Script
-      run: ./ml-job-run.sh
+      - name: Set Up Shell Script
+        run: chmod +x ml-job-run.sh  # Ensure the script is executable
+
+      - name: Run ML Job Script
+        run: ./ml-job-run.sh
 permissions:
   contents: write
 
