@@ -5,3 +5,4 @@ metadata:
 data:
   DATABASE_PATH: "/mnt/data/2023_spotify_ds1.csv"
   log_level: "debug"
+
