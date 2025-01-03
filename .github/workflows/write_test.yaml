@@ -1,0 +1,10 @@
+- name: Test Write Permissions
+  run: |
+    touch test-file.txt
+    if [ -f "test-file.txt" ]; then
+      echo "Write permissions are enabled."
+    else
+      echo "Write permissions are not enabled."
+    fi
+    ls -la
+
