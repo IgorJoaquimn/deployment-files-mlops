@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
+      - name: Checkout Repository
+        uses: actions/checkout@v3
       
       - name: Set Up Shell Script
         run: chmod +x ml-job-run.sh  # Ensure the script is executable
@@ -23,7 +24,6 @@ jobs:
       - name: Run ML Job Script
         run: ./ml-job-run.sh
 
-      - uses: actions/checkout@v3
       - name: Check for changes
         run: |
           git config user.name github-actions
