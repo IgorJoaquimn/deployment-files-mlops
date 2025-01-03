@@ -53,3 +53,5 @@ jobs:
           git remote set-url --push origin https://IgorJoaquimn:$GITHUB_TOKEN@github.com/IgorJoaquimn/deployment-files-mlops
       - name: push
         run: git push
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
