@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: JOB_NAME_PLACEHOLDER  # Placeholder for the job name
+spec:
+  template:
+    spec:
+      containers:
+        - name: ml-container
+          image: igorjsc/ml-image:latest
+          command: ["python", "generate_rules.py"]  # Set the command to python generate_rules.py
+          args:
+            - "$(DATASET_PATH)"  # Pass the dataset path as an argument
+            - "/mnt/data/rules.p"
+          env:
+            - name: DATABASE_PATH
+              valueFrom:
+                configMapKeyRef:
+                  name: db_path # Name of the ConfigMap
+                  key: DATABASE_PATH   # Key to retrieve from ConfigMap
+          volumeMounts:
+            - name: shared-pvc
+              mountPath: /mnt/data  # Mount PVC at /mnt/data
+      restartPolicy: Never
+      volumes:
+        - name: shared-pvc
+          persistentVolumeClaim:
+            claimName: project2-pvc-igorcosta  # The PVC name
+
