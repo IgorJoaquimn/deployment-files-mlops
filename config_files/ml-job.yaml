@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ml-job-20250103212354  # Placeholder for the job name
+  name: ml-job-20250103213422  # Placeholder for the job name
 spec:
   template:
     spec:
@@ -16,7 +16,7 @@ spec:
             - name: DATABASE_PATH
               valueFrom:
                 configMapKeyRef:
-                  name: db_path # Name of the ConfigMap
+                  name: dbpath # Name of the ConfigMap
                   key: DATABASE_PATH   # Key to retrieve from ConfigMap
           volumeMounts:
             - name: shared-pvc
