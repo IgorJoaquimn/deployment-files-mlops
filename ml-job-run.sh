@@ -3,7 +3,7 @@ sed "s/JOB_NAME_PLACEHOLDER/$JOB_NAME/" templates/ml-job-template.yaml > config_
 # Verify the output
 if [ -f "config_files/ml-job.yaml" ]; then
     echo "ml-job.yaml created successfully:"
-    cat ml-job.yaml
+    cat config_files/ml-job.yaml
 else
     echo "Failed to create ml-job.yaml"
 fi
