@@ -9,15 +9,19 @@ spec:
         - name: ml-container
           image: igorjsc/ml-image:latest
           command: ["python", "generate_rules.py"]  # Set the command to python generate_rules.py
-          args:
-            - "$(DATASET_PATH)"  # Pass the dataset path as an argument
-            - "/mnt/data/rules.p"
           env:
             - name: DATABASE_PATH
               valueFrom:
                 configMapKeyRef:
                   name: dbpath # Name of the ConfigMap
                   key: DATABASE_PATH   # Key to retrieve from ConfigMap
+
+            - name: RULES_PATH 
+              valueFrom:
+                configMapKeyRef:
+                  name: dbpath # Name of the ConfigMap
+                  key: RULES_PATH # Key to retrieve from ConfigMap
+
           volumeMounts:
             - name: shared-pvc
               mountPath: /mnt/data  # Mount PVC at /mnt/data

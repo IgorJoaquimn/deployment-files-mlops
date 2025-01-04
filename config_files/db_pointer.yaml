@@ -4,6 +4,7 @@ metadata:
   name: dbpath 
 data:
   DATABASE_PATH: "/mnt/data/2023_spotify_ds1.csv"
+  RULES_PATH: "/mnt/data/rules.p"
   log_level: "debug"
 
 

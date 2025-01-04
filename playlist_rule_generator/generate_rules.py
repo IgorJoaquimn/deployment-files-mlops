@@ -38,12 +38,8 @@ def generate_ass_rules(db_path, min_support=0.05,
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        sys.exit("Error: Too few arguments. \
-        Please provide the path to the database file.")
-
-    db_path = sys.argv[1]
-    rules_path = sys.argv[2]
+    db_path = os.getenv("DATABASE_PATH", None)
+    rules_path = os.getenv("RULES_PATH", None)
     rules = generate_ass_rules(db_path)
     
     # Ensure the path for the output model exists (use the PVC mount path)
