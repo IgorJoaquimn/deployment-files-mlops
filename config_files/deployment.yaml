@@ -16,12 +16,24 @@ spec:
     spec:
       containers:
         - name: recommender
-          image: igorjsc/recommender:latest
+          image: igorjsc/recommender:1.0
           ports:
             - containerPort: 52031
           volumeMounts:
             - name: project2-storage
               mountPath: /mnt/data  # This is the directory inside the container where the PVC will be mounted
+          env:
+            - name: DATABASE_PATH
+              valueFrom:
+                configMapKeyRef:
+                  name: dbpath # Name of the ConfigMap
+                  key: DATABASE_PATH   # Key to retrieve from ConfigMap
+
+            - name: RULES_PATH 
+              valueFrom:
+                configMapKeyRef:
+                  name: dbpath # Name of the ConfigMap
+                  key: RULES_PATH # Key to retrieve from ConfigMap
       volumes:
         - name: project2-storage
           persistentVolumeClaim:

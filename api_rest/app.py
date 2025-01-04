@@ -9,7 +9,7 @@ import hashlib
 import os
 
 app = Flask(__name__)
-MODEL_PATH = "/mnt/data/rules.p"
+MODEL_PATH = os.getenv("RULES_PATH",None) 
 
 last_checksum = None
 last_rules = None
