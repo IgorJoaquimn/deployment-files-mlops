@@ -5,6 +5,7 @@ metadata:
   labels:
     app: igorcosta-playlist-recommender
 spec:
+  revisionHistoryLimit: 2
   replicas: 3
   selector:
     matchLabels:
