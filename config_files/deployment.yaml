@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: recommender
-          image: igorjsc/recommender:1.0
+          image: igorjsc/recommender:1.1
           ports:
             - containerPort: 52031
           volumeMounts:
